@@ -1,0 +1,9 @@
+[project]
+name = "stock-buy-sell-signal-engine"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "yahooquery>=2.4.1",
+]
