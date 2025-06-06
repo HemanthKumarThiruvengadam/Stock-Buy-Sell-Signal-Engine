@@ -1,5 +1,8 @@
+from data_loaders import fetch_stock_data
 from yahooquery import search 
+from rich.console import Console
 def main():
+    console = Console()
     company_name = input("Enter Company's Name: ")
     results = search(company_name)
     tickers = []
@@ -8,9 +11,13 @@ def main():
         symbol = result['symbol']
         tickers.append(symbol)
         name = result.get('shortname','N/A')
-        print(f"[{index}] {symbol} - {name}")
+        console.print(f"[bright_white][{index}] {symbol} - {name}")
     index = int(input("Enter the correct ticker (Enter the number): "))
-    print("You have selected ticker: " + tickers[index - 1])
+    ticker = tickers[index - 1]
+    console.print("[bright_blue]You have selected ticker: " + ticker)
+    fetch_stock_data(ticker)
+
+
 
 if __name__ == "__main__":
     main()
