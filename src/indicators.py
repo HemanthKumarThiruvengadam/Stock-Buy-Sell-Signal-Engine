@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from signal_generator import generate_signal
+import streamlit as st
+
 def ema_calculator(N,data):
     sma = data['Close'].rolling(window=N).mean()
     initial_EMA = sma.iloc[N - 1]
@@ -13,35 +15,36 @@ def ema_calculator(N,data):
         close_price = data['Close'].iloc[i]
         EMA.iat[i] = close_price * alpha + prev_EMA * (1 - alpha)
     return EMA
+
 def display_indicators(data):
-        plt.figure(figsize = (12,6))
-        plt.plot(data.index,data['MACD'],label = "MACD",color = "blue")
-        plt.plot(data.index,data['Signal'],label = "Signal",color = "magenta")
-        plt.title("MACD Vs Signal")
-        plt.xlabel("Date")
-        plt.ylabel("Value")
-        plt.legend()
-        plt.grid(True)
-        plt.show()
-        plt.figure(figsize = (12,6))
-        plt.plot(data.index,data['Close'],label = "Close_Price",color = "red")
-        plt.plot(data.index,data['UB'],label = "Upper_Band",color = "blue")
-        plt.plot(data.index,data['LB'],label = "Lower_Band",color = "black")
-        plt.title("Close_Price Vs Upper_Band Vs Lower_Band")
-        plt.xlabel("Date")
-        plt.ylabel("Value")
-        plt.legend()
-        plt.grid(True)
-        plt.show()
-        plt.figure(figsize = (12,6))
-        plt.plot(data.index,data['Close'],label = "Close_Price",color = "blue")
-        plt.plot(data.index,data['rsi'],label = "RSI",color = "red")
-        plt.title("Close_Price Vs RSI")
-        plt.xlabel("Date")
-        plt.ylabel("Value")
-        plt.legend()
-        plt.grid(True)
-        plt.show()
+    fig1 = plt.figure(figsize = (12,6))
+    plt.plot(data.index,data['MACD'],label = "MACD",color = "blue")
+    plt.plot(data.index,data['Signal'],label = "Signal",color = "magenta")
+    plt.title("MACD Vs Signal")
+    plt.xlabel("Date")
+    plt.ylabel("Value")
+    plt.legend()
+    plt.grid(True)
+    st.pyplot(fig1)
+    fig2 = plt.figure(figsize = (12,6))
+    plt.plot(data.index,data['Close'],label = "Close_Price",color = "red")
+    plt.plot(data.index,data['UB'],label = "Upper_Band",color = "blue")
+    plt.plot(data.index,data['LB'],label = "Lower_Band",color = "black")
+    plt.title("Close_Price Vs Upper_Band Vs Lower_Band")
+    plt.xlabel("Date")
+    plt.ylabel("Value")
+    plt.legend()
+    plt.grid(True)
+    st.pyplot(fig2)
+    fig3 = plt.figure(figsize = (12,6))
+    plt.plot(data.index,data['Close'],label = "Close_Price",color = "blue")
+    plt.plot(data.index,data['rsi'],label = "RSI",color = "red")
+    plt.title("Close_Price Vs RSI")
+    plt.xlabel("Date")
+    plt.ylabel("Value")
+    plt.legend()
+    plt.grid(True)
+    st.pyplot(fig3)
 
 def create_indicators(data):
     delta = data['Close'].diff()
