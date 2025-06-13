@@ -20,10 +20,10 @@ Features
 📸 Screenshots
 
 📸 Signal Output with Confidence Bars  
-![Buy_Sell Signal](images/buy_sell_signal.png)
+![Buy_Sell Signal](src/images/buy_sell_signal.png)
 
 📊 Technical Indicator Visualizations
-![Graphs](images/graphs.png)
+![Graphs](src/images/graphs.png)
 
 🔧 Installation
 
