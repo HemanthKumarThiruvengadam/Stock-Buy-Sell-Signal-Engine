@@ -11,8 +11,8 @@ def display_back_testing(data):
     plt.grid(True)
     st.pyplot(fig4)
 def back_testing(data):
-    st.write("Back_Testing The Signals")
-    st.write("Initial Amount: 10000")
+    st.markdown(f"#### BackTesting Signals", unsafe_allow_html=True)
+    st.markdown(f"### 💰 Initial Amount: 10000", unsafe_allow_html=True)
     Portfolio_Value = []
     Amount = 10000
     Position = 0
@@ -30,4 +30,6 @@ def back_testing(data):
         Portfolio_Value.append(Total_Value)
     data['Portfolio_Value'] = Portfolio_Value
     display_back_testing(data)
-    st.write(f"In One Year The Final_Amount = {data['Portfolio_Value'].iloc[-1]}")
+    final_amount = data['Portfolio_Value'].iloc[-1]
+    st.markdown(f"### 💰 Final Portfolio Value: `{final_amount:.2f}`", unsafe_allow_html=True)
+

@@ -14,7 +14,8 @@ def signal_bars(buy_perc,sell_perc):
         ),
         text = f"{buy_perc:.2f}%",
         textposition = 'inside',
-        name = 'BUY'
+        name = 'BUY',
+        base = 0
     ))
     fig.add_trace(plo.Bar(
         y = ["SELL"],
@@ -26,11 +27,12 @@ def signal_bars(buy_perc,sell_perc):
         ),
         text = f"{sell_perc:.2f}%",
         textposition = 'inside',
-        name = 'SELL'
+        name = 'SELL',
+        base = 0
     ))
     fig.update_layout(
         barmode = 'stack',
-        height = 200,
+        height = 250,
         margin = dict(l = 40,r = 40,t = 40,b = 40),
         xaxis = dict(range = [0,100],
                      showgrid = False,zeroline = False,showticklabels = False),
@@ -115,13 +117,13 @@ def generate_signal(data):
     Buy_Confidence_Percentage = (Buy_Indicators / Total_Indicators) * 100
     Sell_Confidence_Percentage = (Sell_Indicators / Total_Indicators) * 100
     if(Buy_Confidence_Percentage > Sell_Confidence_Percentage):
-        st.markdown('<span style = " color : limegreen;">Buy Signal</span>',unsafe_allow_html = True)
+        st.markdown('<span style = " color : limegreen;font-size: 24px;">Buy Signal</span>',unsafe_allow_html = True)
         signal_bars(Buy_Confidence_Percentage,Sell_Confidence_Percentage)
     elif(Sell_Confidence_Percentage > Buy_Confidence_Percentage):
-        st.markdown('<span style = " color : red;">Sell Signal</span>',unsafe_allow_html = True)
+        st.markdown('<span style = " color : red;font-size: 24px;">Sell Signal</span>',unsafe_allow_html = True)
         signal_bars(Buy_Confidence_Percentage,Sell_Confidence_Percentage)
     else:
-        st.write("HOLD")
+        st.markdown('<span style = " color : white;font-size: 24px;">HOLD</span>',unsafe_allow_html = True)
         signal_bars(Buy_Confidence_Percentage,Sell_Confidence_Percentage)
     data = generate_signal_data(data)
     back_testing(data)
