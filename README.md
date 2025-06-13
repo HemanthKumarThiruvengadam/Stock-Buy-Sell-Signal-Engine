@@ -32,10 +32,10 @@ Features
 
 ### Run Locally:
 <pre lang="markdown"> 
-bash git clone git@github.com:HemanthKumarThiruvengadam/Stock-Buy-Sell-Signal-Engine.
+```bash git clone git@github.com:HemanthKumarThiruvengadam/Stock-Buy-Sell-Signal-Engine.
 git cd Stock-Buy-Sell-Signal-Engine
 uv venv uv pip install -r requirements.txt 
-streamlit run src/main.py  
+streamlit run src/main.py``` 
 </pre>
 
 🧠 Tech Stack
@@ -63,15 +63,14 @@ streamlit run src/main.py
 📁 Project Structure
 
 <pre lang="markdown"> 
- 📁 Stock-Buy-Sell-Signal-Engine ├── src/ │
+``` 📁 Stock-Buy-Sell-Signal-Engine ├── src/ │
  ├── main.py │
   ├── indicators.py │ 
   ├── signal_generator.py │
    ├── backtest.py │
-    └── data_loaders.py
-     ├── requirements.txt
-      └── README.md 
-      </pre>
+    └── data_loaders.py 
+    ├── requirements.txt 
+    └── README.md ``` </pre>
 
 🤝 Contributing
 
@@ -82,6 +81,7 @@ PRs and suggestions are welcome! Feel free to fork, clone, and improve the signa
 Made by [Hemanth Kumar T](https://github.com/HemanthKumarThiruvengadam)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 
 
