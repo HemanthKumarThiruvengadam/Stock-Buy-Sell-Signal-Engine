@@ -20,18 +20,21 @@ Features
 📸 Screenshots
 
 📸 Signal Output with Confidence Bars  
+
 ![Buy_Sell Signal](src/images/buy_sell_signal.png)
 
 📊 Technical Indicator Visualizations
+
+
 ![Graphs](src/images/graphs.png)
 
 🔧 Installation
 
-git clone git@github.com:HemanthKumarThiruvengadam/Stock-Buy-Sell-Signal-Engine.git
-cd Stock-Buy-Sell-Signal-Engine
-uv venv
-uv pip install -r requirements.txt
-streamlit run src/main.py
+'''git clone git@github.com:HemanthKumarThiruvengadam/Stock-Buy-Sell-Signal-Engine.git
+'''cd Stock-Buy-Sell-Signal-Engine
+'''uv venv
+'''uv pip install -r requirements.txt
+'''streamlit run src/main.py
 
 🧠 Tech Stack
 
